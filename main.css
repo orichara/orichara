@@ -1,0 +1,139 @@
+@CHARSET "UTF-8";
+
+/*
+#container {
+	text-align: center;
+}
+
+#boxA {
+	height: 300px;
+	margin: 0 auto;
+	background-image: url("./sozai/011-round.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center top;
+}
+
+*/
+
+/*基本のフレーム*/
+body {
+	background-image: url("../sozai/kabe/paper-seamless.jpg");
+}
+
+#container {
+
+ margin-left:auto;
+ margin-right:auto;
+ text-align:left;
+}
+
+
+
+#boxA{
+	text-align:center;
+}
+
+.boxB {
+background-image: url("../sozai/kabe/paper-seamless.jpg");
+color: #000000;
+background-color: #CCCCCC;
+}
+
+#boxC {
+
+
+}
+
+
+.btn {
+    position: relative;
+	display: block;
+	width: 160px;
+	margin: 0.2em;
+	padding: 0.8em;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFF;
+	text-shadow: 0 0 5px rgba(255, 255, 255, 0.0);
+	background: #333366;
+	transition: .4s;
+	border-radius: 4px;
+}
+
+.btn:hover {
+text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83), 6px 0px 15px rgba(255, 255, 240, 0.83);
+transition: .4s;
+}
+
+.btn .active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn :hover:not(.active) {background-color: #ddd;}
+
+
+/*
+.btn{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	width: 150px;
+	color: #050505;
+	padding: 10px 20px 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#b5b5b5);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ffffff),
+		to(#b5b5b5));
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: 1px solid #949494;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.2),
+		0px 1px 0px rgba(000,000,000,1)
+}
+
+:hover.btn {
+	background-image: url("../sozai/kabe/green_dust_scratch.png") !important;
+
+	cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	width: 150px;
+	color: #050505;
+	padding: 10px 20px 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#b5b5b5);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ffffff),
+		to(#b5b5b5));
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: 1px solid #949494;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.2),
+		0px 1px 0px rgba(000,000,000,1)
+}
+*/

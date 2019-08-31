@@ -1,0 +1,137 @@
+@CHARSET "UTF-8";
+
+body {
+background-image: url("../sozai/kabe/gplaypattern.png") !important;
+text-align:center;
+/* 背景を動かすのに必要 */
+animation: bgiLoop 5s linear infinite;
+}
+/* 背景を動かすのに必要 */
+@-webkit-keyframes bgiLoop {
+    0% { background-position: 0 0;}
+  100% { background-position: -188px 178px;}
+}
+@keyframes bgiLoop {
+    0% { background-position: 0 0;}
+  100% { background-position: -188px 178px;}
+}
+
+#container {
+ width:1200px;
+ margin-left:auto;
+ margin-right:auto;
+ text-align:left;
+}
+
+#playerA {
+	float: left;
+}
+#playerB {
+	float: right;
+}
+
+.kaijyo {
+	clear:both;
+}
+
+#senntou{
+width:1100px;
+height:650px;
+margin:10px 10px 10px 10px;
+padding: 10px 20px 20px 10px;
+color: #000000;
+background-color: #CCCCCC;
+background-image: url("../sozai/kabe/textured_paper.png") !important;
+
+-moz-border-radius: 14px;
+-webkit-border-radius: 14px;
+border-radius: 14px;
+-moz-box-shadow: 0px 0px 20px #000000;
+-webkit-box-shadow: 0px 0px 20px #000000;
+box-shadow: 0px 0px 20px #000000;
+}
+
+#name{
+	font-size: x-large;
+}
+
+#message{
+	font-size: xx-large;
+	background-image: url("../sozai/kabe/handmadepaper.png") !important;
+	margin:20px 5px 20px 5px;
+	height:210px;
+
+    border:double 5px #000000;
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    border-radius: 9px;
+}
+
+#message:after {
+    content: "";
+    clear: both;
+    height: 0;
+    display: block;
+    visibility: hidden;
+}
+
+.btn {
+	float: right;
+	position: relative;
+	bottom: 80px;
+	right: 20px;
+/* 	display: block;*/
+	width: 110px;
+	padding: 10px 20px 10px 20px;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+/* 	color: #FFF; */
+	text-shadow: 0 0 5px rgba(255, 255, 255, 0.0);
+	background: red;
+	transition: .4s;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: 2px solid #949494;
+
+	animation: blink 1s linear infinite normal;
+	-webkit-animation: blink 1s linear infinite normal;
+	-moz-animation: blink 1s linear infinite normal;
+	-o-animation: blink 1s linear infinite normal;
+}
+@keyframes blink{
+	0% {background-color: #CCFFFF;}
+	10% {background-color:#FFFFFF;}
+	100% {background-color: #CCFFFF;}
+}
+@-webkit-keyframes blink{
+	0% {background-color: #CCFFFF;}
+	10% {background-color:#FFFFFF;}
+	100% {background-color: #CCFFFF;}
+}
+@-moz-keyframes blink{
+	0% {background-color: #CCFFFF;}
+	10% {background-color:#FFFFFF;}
+	100% {background-color:#CCFFFF;}
+}
+@-o-keyframes blink{
+	0% {background-color: #CCFFFF;}
+	10% {background-color:#FFFFFF;}
+	100% {background-color:#CCFFFF;}
+}
+.btn:hover {
+text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83), 6px 0px 15px rgba(255, 255, 240, 0.83);
+transition: .4s;
+}
+
+.btn .active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn :hover:not(.active) {background-color: #ddd;}
+
+:hover.btn {
+	cursor: pointer;
+}

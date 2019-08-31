@@ -1,0 +1,200 @@
+@CHARSET "UTF-8";
+
+body {
+ background-image: url("../sozai/kabe/brick-wall.png");
+ /* 背景を動かすのに必要 */
+ animation: bgiLoop 5s linear infinite;
+}
+/* 背景を動かすのに必要 */
+@-webkit-keyframes bgiLoop {
+    0% { background-position: 0 0;}
+  100% { background-position: -200px 177px;}
+}
+@keyframes bgiLoop {
+    0% { background-position: 0 0;}
+  100% { background-position: -200px 177px;}
+}
+
+
+#container{
+	margin: 0 auto;
+	width: 1200px;
+	background-image: url("../sozai/kabe/blackmamba.png") !important;
+	border: medium solid #CCCCCC;
+	-moz-box-shadow: 0px 0px 10px #000000;
+	-webkit-box-shadow: 0px 0px 10px #000000;
+	box-shadow: 0px 0px 10px #000000;
+	border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+#container:after { /*floatの解除、ここがポイント*/
+display:block;
+clear:both;
+height:0px;
+visibility:hidden;
+content:".";
+}
+
+#boxB{
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+
+.title{
+	font-size:300%;
+	font-family: fantasy;
+	color:#CCFF66;
+}
+
+#back_title{
+position:relative;
+float:left;
+left:43%;
+	list-style-type: none;
+	margin-right:auto;
+	margin-left:auto;
+
+color:#330000;
+text-decoration: none;
+display: inline-block;
+padding: 20px 50px 20px 50px;
+background-image: url("../sozai/kabe/wood.png") !important;
+
+-moz-border-radius: 14px;
+-webkit-border-radius: 14px;
+border-radius: 14px;
+-moz-box-shadow: 0px 0px 10px #000000;
+-webkit-box-shadow: 0px 0px 10px #000000;
+box-shadow: 0px 0px 10px #000000;
+
+}
+
+#back_title:after{
+	display:block;
+clear:both;
+height:0px;
+visibility:hidden;
+content:".";
+}
+
+#back_title:hover{
+color:#66FF33 !important;
+text-decoration: none;
+display: inline-block;
+padding: 20px 50px 20px 50px;
+
+-moz-border-radius: 14px;
+-webkit-border-radius: 14px;
+border-radius: 14px;
+-moz-box-shadow: 0px 0px 10px #000000;
+-webkit-box-shadow: 0px 0px 10px #000000;
+box-shadow: 0px 0px 10px #000000;
+}
+
+.waku{
+	background-image: url("../sozai/kabe/paper-seamless.jpg") !important;
+	padding: 5px 5px 5px 5px;
+	width: 500px;
+	font-style: italic;
+	margin: 0 auto;
+	border: medium solid #CCCCCC;
+	border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.waku:after { /*floatの解除、ここがポイント*/
+display:block;
+clear:both;
+height:0px;
+visibility:hidden;
+content:".";
+}
+
+.image{
+	float:left;
+	margin:0px 0px 0px 10px;
+}
+
+.text{
+	float:right;
+	width: 650px;
+}
+
+#select{
+	margin: 0 auto;
+}
+
+#center {
+    text-align : center ;
+}
+
+#stop {
+    position: relative;
+/* 	display: block;*/
+	width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFF;
+	text-shadow: 0 0 5px rgba(255, 255, 255, 0.0);
+	background: red;
+	transition: .4s;
+	border-radius: 4px;
+
+	animation: blink 1s linear infinite normal;
+	-webkit-animation: blink 1s linear infinite normal;
+	-moz-animation: blink 1s linear infinite normal;
+	-o-animation: blink 1s linear infinite normal;
+}
+/* ボタンを点滅させる */
+@keyframes blink{
+	0% {background-color:#FFC600;}
+	10% {background-color:#FDE8A1;}
+	100% {background-color:#FFC600;}
+}
+@-webkit-keyframes blink{
+	0% {background-color:#FFC600;}
+	10% {background-color:#FDE8A1;}
+	100% {background-color:#FFC600;}
+}
+@-moz-keyframes blink{
+	0% {background-color:#FFC600;}
+	10% {background-color:#FDE8A1;}
+	100% {background-color:#FFC600;}
+}
+@-o-keyframes blink{
+	0% {background-color:#FFC600;}
+	10% {background-color:#FDE8A1;}
+	100% {background-color:#FFC600;}
+}
+
+#stop:hover {
+text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83), 6px 0px 15px rgba(255, 255, 240, 0.83);
+transition: .4s;
+}
+
+#stop .active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#stop :hover:not(.active) {background-color: #ddd;}
+
+.select{
+	font-size: xx-large;
+	color :#66FF66;
+}
+
+a {
+	text-decoration: none;
+	color:#FFFFCC;
+	font-size: x-large;
+}
+
+a:visited { text-align: center; color:#FFFFCC; text-decoration:none }
