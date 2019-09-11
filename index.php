@@ -5,14 +5,16 @@ require_once './function/DbManager.php';
 //ヘッダーを呼び出し
 head();
 ?>
-<meta name="description" content="あなたの考えたオリジナルキャラクター（オリキャラ）を戦わせてみませんか？メールアドレス登録は不要ですぐにキャラクターを登録できます。自分だけのオリキャラでランキングトップを目指せ！">
+<meta name="description"
+	content="あなたの考えたオリジナルキャラクター（オリキャラ）を戦わせてみませんか？メールアドレス登録は不要ですぐにキャラクターを登録できます。自分だけのオリキャラでランキングトップを目指せ！">
 <meta name="keywords" content="オリキャラ,オリジナル,キャラクター,バトル,創作">
 <link rel="stylesheet" type="text/css" href="index.css">
 <link rel="shortcut icon" href="http://ori-chara.angry.jp/sozai/fav/tmfav04905.ico" type="image/vnd.microsoft.icon">
 <title>オリキャラバトル　～あなたの考えたキャラクターを戦わせよう！～</title>
 </head>
+
 <body>
-<?php
+	<?php
 
 $db = getDb();
 $sql = 'SELECT `code`,`name`,`about`,`image_url` FROM `character` WHERE 1 ORDER BY `code` DESC LIMIT 20';
@@ -34,31 +36,31 @@ print <<< HEAD_CAROUSEL
 	  <div class="col-12 carousel-inner">
 		
 HEAD_CAROUSEL;
-for($i = 1; $i <= 20; $i++){
-	$rec = $stmt->fetch(PDO::FETCH_ASSOC);
-	if($rec==false){
-		break;
-	}
-	$rec['name'] = htmlspecialchars($rec['name']);
-	$link[] = $rec['code'];
-	$name[] = $rec['name'];
-	$about[] = $rec['about'];
-	$image[] = $rec['image_url'];
+for ($i = 1; $i <= 20; $i++) {
+    $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($rec==false) {
+        break;
+    }
+    $rec['name'] = htmlspecialchars($rec['name']);
+    $link[] = $rec['code'];
+    $name[] = $rec['name'];
+    $about[] = $rec['about'];
+    $image[] = $rec['image_url'];
 }
 
 
 
-for($i = 0; $i <= 4; $i++){
-	if($i == 0){
-		print '<div class="carousel-item active"><div class="row">';
-	}else {
-		print '<div class="carousel-item"><div class="row">';
-	}
-	for($tes = 0; $tes <= 2; $tes++){
-		$hyouji = ($i * 3) + $tes;
-		print <<< ETSURAN
+for ($i = 0; $i <= 4; $i++) {
+    if ($i == 0) {
+        print '<div class="carousel-item active"><div class="row">';
+    } else {
+        print '<div class="carousel-item"><div class="row">';
+    }
+    for ($tes = 0; $tes <= 2; $tes++) {
+        $hyouji = ($i * 3) + $tes;
+        print <<< ETSURAN
 				<a href="chara_data.php?code=$link[$hyouji]" style="text-decoration:none;color: black;">		
-				<div class="col-12 col-lg-10 card bg-secondary" style="width: 18rem;">
+				<div class="col-12 col-lg-10 card" style="width: 18rem;">
 				<svg class="bd-placeholder-img card-img-top" width="100%" height="0" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><text fill="#dee2e6" dy=".3em" x="50%" y="50%"><img class="rounded" src="./chara_image/$image[$hyouji]" alt="キャラクターの画像" title="$name[$hyouji]" height="230"></text></svg>
 				<div class="card-body">
 				
@@ -69,8 +71,8 @@ for($i = 0; $i <= 4; $i++){
 				</div></a>	
 			
 ETSURAN;
-	}
-		print "</div></div>";
+    }
+    print "</div></div>";
 }
 
 print <<< KA
@@ -87,8 +89,12 @@ print <<< KA
 <br>
 KA;
 ?>
-		<div class="box1">
+	<div class="box1">
 		<h2>Update</h2>
+		2019.9.9　タグ機能を追加しました。
+		<br>
+		2019.8.31　オリキャラ検索を追加しました。
+		<br>
 		2019.8.3　超必殺技が使用可能になりました。
 		<br>
 		2019.7.26　特殊能力「疾風怒涛」を追加しました。
@@ -115,11 +121,11 @@ KA;
 		<br>
 		2018.9.28　レベルアップの条件を勝利数に変更しました。
 		<br>
-		</div>
+	</div>
 
-		<br>
+	<br>
 
-		<div class="box1">
+	<div class="box1">
 		<h3>遊び方</h3>
 		趣旨
 		<br>
@@ -153,11 +159,11 @@ KA;
 		<br>
 		４．対戦開始！
 		<br>
-		</div>
-		<br>
+	</div>
+	<br>
 
-		<div class="box1">
-		<h3>利用規約</h3>	
+	<div class="box1">
+		<h3>利用規約</h3>
 		・第三社の著作権を侵害するような画像のアップロードはご遠慮ください。
 		<br>
 		<br>
@@ -175,15 +181,16 @@ KA;
 		<br>
 		・当サイトを利用したことによる損害については製作者は一切責任を負いません。自己責任でご利用ください。
 		<br>
-		</div>
-		<br>
+	</div>
+	<br>
 
 
 
 	</div>
 	<footer id="footer">
-	<p class="copyright"> <small>※当サイトはフリー音楽素材魔王魂とWingless SeraphのBGMを利用しています。 </small> </p>
-	<p class="copyright"> <small>copyright &copy; ori-chara.angry.jp All Rights Reserved. </small> </p>
+		<p class="copyright"> <small>※当サイトはフリー音楽素材魔王魂とWingless SeraphのBGMを利用しています。 </small> </p>
+		<p class="copyright"> <small>copyright &copy; ori-chara.angry.jp All Rights Reserved. </small> </p>
 	</footer>
 </body>
+
 </html>
