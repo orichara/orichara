@@ -69,7 +69,7 @@ if (!empty($word)) {
         $sql = "SELECT `code`,`name`,`about`,`image_url` FROM `character` WHERE `about` LIKE '%$word%' ORDER BY `code` DESC LIMIT {$start},10";
     }
     if ($_GET['type']  == 3) {
-        $sql = "SELECT `code`,`name`,`about`,`image_url` FROM `character` WHERE concat(tag1,'|',tag2,'|',tag3,'|',tag4,'|',tag5,'|',tag6,'|',tag7,'|',tag8,'|',tag9,'|',tag10) LIKE '%$word%' OR tag2 LIKE '%$word%' OR tag3 LIKE '%$word%' ORDER BY `code` DESC LIMIT {$start},10";
+        $sql = "SELECT `code`,`name`,`about`,`image_url` FROM `character` WHERE concat(tag1,'|',tag2,'|',tag3,'|',tag4,'|',tag5,'|',tag6,'|',tag7,'|',tag8,'|',tag9,'|',tag10) LIKE '%$word%' ORDER BY `code` DESC LIMIT {$start},10";
     }
     $stmt = $db->prepare($sql);
     $stmt->execute();

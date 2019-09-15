@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once './function/common.php';
 require_once 'kannsuu.php';
 require_once './function/DbManager.php';
@@ -31,7 +32,7 @@ print <<< HEAD_CAROUSEL
 <br>
 <br>
 <h1 class="col-12 text-primary font-size: small;">新人のオリキャラたち</h1>
-<div id="carouselExampleControls" class="center-block carousel slide" data-ride="carousel">
+<div id="carouselExampleControls" class="mx-auto carousel slide" data-ride="carousel">
 	
 	  <div class="col-12 carousel-inner">
 		
@@ -49,29 +50,23 @@ for ($i = 1; $i <= 20; $i++) {
 }
 
 
-
 for ($i = 0; $i <= 4; $i++) {
     if ($i == 0) {
         print '<div class="carousel-item active"><div class="row">';
     } else {
         print '<div class="carousel-item"><div class="row">';
     }
-    for ($tes = 0; $tes <= 2; $tes++) {
-        $hyouji = ($i * 3) + $tes;
+    for ($tes = 0; $tes <= 3; $tes++) {
+        $hyouji = ($i * 4) + $tes;
         print <<< ETSURAN
 				<a href="chara_data.php?code=$link[$hyouji]" style="text-decoration:none;color: black;">		
-				<div class="col-12 col-lg-10 card" style="width: 18rem;">
-				<svg class="bd-placeholder-img card-img-top" width="100%" height="0" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><text fill="#dee2e6" dy=".3em" x="50%" y="50%"><img class="rounded" src="./chara_image/$image[$hyouji]" alt="キャラクターの画像" title="$name[$hyouji]" height="230"></text></svg>
-				<div class="card-body">
-				
-				<div class="card-title">$name[$hyouji]</div>
-				<p class="card-text" style="height: 9rem;">$about[$hyouji]</p>
-				
-				</div>
+				<div class="col-3 col-lg-4">
+				<img class="rounded" src="./chara_image/$image[$hyouji]" alt="キャラクターの画像" title="$name[$hyouji]" height="235rem" width="235rem">
 				</div></a>	
 			
 ETSURAN;
-    }
+	}
+	
     print "</div></div>";
 }
 
@@ -91,7 +86,9 @@ KA;
 ?>
 	<div class="box1">
 		<h2>Update</h2>
-		2019.9.9　タグ機能を追加しました。
+		2019.9.15　マイページに最近の出来事を追加しました。
+		<br>
+		2019.9.9　編集ページにタグ機能を追加しました。
 		<br>
 		2019.8.31　オリキャラ検索を追加しました。
 		<br>

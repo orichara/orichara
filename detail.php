@@ -5,28 +5,17 @@ require_once './function/DbManager.php';
 //ヘッダーを呼び出し
 head();
 ?>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="chara_css/chara_data.css">
 <link rel="shortcut icon" href="http://ori-chara.angry.jp/sozai/fav/tmfav04905.ico" type="image/vnd.microsoft.icon">
 <title>キャラクター図鑑</title>
 </head>
 <body>
-<?php containar(); navvar(); ?>
-<br>
-<br>
-<div ID="Z">
-
-
-
-<?php
+	<br>
+	<br>
+		<?php
+containar(); navvar();
 require_once 'shogo.php';
-require_once 'kannsuu.php';
-require_once './function/DbManager.php';
+
 
 $code=$_GET['code'];
 $page=$_GET['page'];
@@ -43,11 +32,13 @@ $db = null;
 
 
 print <<<STATUS
-<div>
+<div class="col-12" ID="Z">
+<br>
+<br>
 <br>
 <div class="row">
-<div class="col-5">
-<img class="img-thumbnail" src="./chara_image/$rec[image_url]" width="400" height="400">
+<div class="col-6">
+<img class="img-thumbnail" src="./chara_image/$rec[image_url]" widrh="100em" height="100em" id="image">
 <br>
 <br>
 </div>
@@ -65,7 +56,7 @@ ABOUT;
 
 
 
-<?php
+		<?php
 require_once './function/DbManager.php';
 $db = getDb();
 $sql = "SELECT `name1`,`name2`,`rival_code`,`winner`,`date`,`end_turn`,`damage1`,`damage2`,`kaihisuu1`,`kaihisuu2` FROM `result` WHERE `code`=? ORDER BY `number`";
@@ -73,19 +64,19 @@ $data1[] = $code;
 $stmt = $db->prepare($sql);
 $stmt->execute($data1);
 
-while(true){
-	$rec = $stmt->fetch(PDO::FETCH_ASSOC);
-	if($rec==false){
-		break;
-	}
-	$name2[] = $rec['name2'];
-	$winner[] = $rec['winner'];
-	$date[] = $rec['date'];
-	$end_turn[] = $rec['end_turn'];
-	$damage1[] = $rec['damage1'];
-	$damage2[] = $rec['damage2'];
-	$kaihisuu1[] = $rec['kaihisuu1'];
-	$kaihisuu2[] = $rec['kaihisuu2'];
+while (true) {
+    $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($rec==false) {
+        break;
+    }
+    $name2[] = $rec['name2'];
+    $winner[] = $rec['winner'];
+    $date[] = $rec['date'];
+    $end_turn[] = $rec['end_turn'];
+    $damage1[] = $rec['damage1'];
+    $damage2[] = $rec['damage2'];
+    $kaihisuu1[] = $rec['kaihisuu1'];
+    $kaihisuu2[] = $rec['kaihisuu2'];
 }
 
 $db = null;
@@ -98,30 +89,30 @@ $keika = array_sum($end_turn);
 $idomiA = count($winner);
 
 //総合の勝率
-$syouritu_total = round($syouri/$taisennsuu*100,1);
+$syouritu_total = round($syouri/$taisennsuu*100, 1);
 
 //相手に勝負を挑んだ時の勝率
-$syoubuA= array_count_values ($winner);
+$syoubuA= array_count_values($winner);
 //連想配列を昇順で並び替え
 ksort($syoubuA);
 //ループ処理でプレーヤーから勝負を挑んだ時の勝利数と敗北数を取り出す
 foreach ($syoubuA as $keyZ => $valueZ) {
-	if ($keyZ == 1) {
-		$syourisuuA = $valueZ;
-	}
-	if ($keyZ == 2) {
-		$syourisuuB = $valueZ;
-	}
+    if ($keyZ == 1) {
+        $syourisuuA = $valueZ;
+    }
+    if ($keyZ == 2) {
+        $syourisuuB = $valueZ;
+    }
 }
-$syourituA = round($syourisuuA/($syourisuuA+$syourisuuB)*100,1);
+$syourituA = round($syourisuuA/($syourisuuA+$syourisuuB)*100, 1);
 
 //累計与ダメージと被ダメージ
 $total_damage1 = array_sum($damage1);
 $total_damage2 = array_sum($damage2);
 
 //平均与ダメージと被ダメージ
-$average_damage1 = round(array_sum($damage1)/count($damage1),1);
-$average_damage2 = round(array_sum($damage2)/count($damage2),1);
+$average_damage1 = round(array_sum($damage1)/count($damage1), 1);
+$average_damage2 = round(array_sum($damage2)/count($damage2), 1);
 
 //最大与ダメージと被ダメージ
 $max_damage1 = max($damage1);
@@ -132,15 +123,15 @@ $total_kaihisuu1 = array_sum($kaihisuu1);
 $total_kaihisuu2 = array_sum($kaihisuu2);
 
 //一戦での平均回避回数
-$average_kaihi1 = round(array_sum($kaihisuu1)/count($kaihisuu1),1);
-$average_kaihi2 = round(array_sum($kaihisuu2)/count($kaihisuu2),1);
+$average_kaihi1 = round(array_sum($kaihisuu1)/count($kaihisuu1), 1);
+$average_kaihi2 = round(array_sum($kaihisuu2)/count($kaihisuu2), 1);
 
 //一戦での最大回避回数
 $max_kaihi1 = max($kaihisuu1);
 $max_kaihi2 = max($kaihisuu2);
 
 //キャラごとの対戦数をカウント
-$rival_count = array_count_values ($name2);
+$rival_count = array_count_values($name2);
 //連想配列を降順で並び替え
 arsort($rival_count);
 //戦ったオリキャラの数
@@ -247,22 +238,23 @@ print <<< TAISENNSUU
 <table class="col-10 mx-auto table table-bordered table-dark">
 TAISENNSUU;
 $count =0;
-foreach($rival_count as $key => $value){
-	if ($count < 10) {
-		print "<tr><td>対戦数：{$value}</td><td>相手：{$key}</td></tr>";
-	}
-	$count +=1;
+foreach ($rival_count as $key => $value) {
+    if ($count < 10) {
+        print "<tr><td>対戦数：{$value}</td><td>相手：{$key}</td></tr>";
+    }
+    $count +=1;
 }
 print '</table>';
 ?>
 
-<br>
-<div class="col-3 list-group">
-  <a href="chara_zukan<?php print "?code=$code&page=$page";?>" class="list-group-item list-group-item-action list-group-item-secondary">図鑑に戻る</a>
-</div>
-<br>
+		<br>
+		<div class="col-3 list-group">
+			<a href="chara_zukan<?php print "?code=$code&page=$page";?>"
+				class="list-group-item list-group-item-action list-group-item-secondary">図鑑に戻る</a>
+		</div>
+		<br>
 
-</div>
-</div><!-- container_end -->
+	</div><!-- container_end -->
 </body>
+
 </html>

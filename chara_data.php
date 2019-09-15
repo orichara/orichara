@@ -18,7 +18,6 @@ $data[] = $code;
 $stmt->execute($data);
 
 $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-$db = null;
 ?>
 
 <link rel="stylesheet" type="text/css" href="chara_css/chara_data.css">
@@ -30,38 +29,32 @@ $db = null;
 
 <br>
 <br>
-<?php containar(); navvar(); ?>
+<?php 
+containar(); 
+navvar();
 
-
-<?php
-
-
-
+$url = rec['url'];
 print <<<STATUS
-<div class="col-12" ID="about">
+<div class="col-12" ID="Z">
 <br>
-
 <br>
-<div class="col-12 rounded bg-light" id="boxC">
-<div class="col-12">
-<img class="img-thumbnail" src="./chara_image/$rec[image_url]" width="400" height="400">
+<div class="row">
+<div class="col-6">
+<img class="img-thumbnail" src="./chara_image/$rec[image_url]" widrh="100em" height="100em" id="image">
+<br>
 <br>
 </div>
-
+<br>
+<div class="col-5 rounded bg-light" id="boxC">
 STATUS;
 
 require_once './function/status.php';
 
-print <<<ABOUT
 
-</div>
-作成日：${rec['sakuseibi']}
-<br>
-製作者URL：${rec['url']}
-<br>
-ABOUT;
+print "</div>";
+
 ?>
-</div>
+
 
 <div class="col-12" id="boxD">
 <?php
@@ -83,12 +76,26 @@ print $about;
 if ($about == null){
 	print 'このキャラクターの説明文はまだありません';
 }
-print '<br>';
-print '</div>';
 
+print <<<ABOUT
+<br>
+</div>
+製作者URL：<a href="${rec['url']}">${rec['url']}</a>
+<br>
+作成日：${rec['sakuseibi']}
+<br>
+<br>
+<div>タグ一覧<br></div>
+ABOUT;
 
 //
-//ここから称号
+//タグ一覧
+for ($i = 1; $i <= 10; $i++){
+	print "<a href=chara_serch.php?word={$rec["tag$i"]}&type=3page=$show_page>{$rec["tag$i"]}  </a>";
+}
+
+
+//称号一覧
 print '<div ID="shogo">獲得称号一覧<br>';
 
 //対戦数
@@ -213,7 +220,7 @@ while(true){
 		break;
 	}
 	$name2 = $rec['name2'];
-	$code = $rec['code'];
+	$code2 = $rec['code'];
 	$winner = $rec['winner'];
 	$date = $rec['date'];
 	$end_turn = $rec['end_turn'];
@@ -232,7 +239,7 @@ while(true){
 
 	print <<< ETSURAN
 	<tr>
-	<td><a href="http://ori-chara.angry.jp/chara_data.php?code=$code">$taisenn_aite</a></td>
+	<td><a href="http://ori-chara.angry.jp/chara_data.php?code=$code2">$taisenn_aite</a></td>
 	<td>$syousya</td>
 	<td>$date</td>
 	<td>$end_turn</td>
@@ -250,6 +257,7 @@ $db = null;
 
 <br>
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="<?php print "キャラクター名：".$name." レベル：".$level." 攻撃力：".$attack." 防御力：".$defence." 必殺技：".$hissatsu1." 説明：".$about;?>" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
 </div>
 <div>
 <br>
