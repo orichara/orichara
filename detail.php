@@ -5,14 +5,16 @@ require_once './function/DbManager.php';
 //ヘッダーを呼び出し
 head();
 ?>
-<link rel="stylesheet" type="text/css" href="chara_css/chara_data.css">
-<link rel="shortcut icon" href="http://ori-chara.angry.jp/sozai/fav/tmfav04905.ico" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" type="text/css" href="https://angry-ori-chara.ssl-lolipop.jp/chara_css/chara_data.css">
+<link rel="shortcut icon" href="https://angry-ori-chara.ssl-lolipop.jp/sozai/fav/tmfav04905.ico"
+	type="image/vnd.microsoft.icon">
 <title>キャラクター図鑑</title>
 </head>
+
 <body>
 	<br>
 	<br>
-		<?php
+	<?php
 containar(); navvar();
 require_once 'shogo.php';
 
@@ -38,7 +40,7 @@ print <<<STATUS
 <br>
 <div class="row">
 <div class="col-6">
-<img class="img-thumbnail" src="./chara_image/$rec[image_url]" widrh="100em" height="100em" id="image">
+<img class="img-thumbnail" src="https://angry-ori-chara.ssl-lolipop.jp/chara_image/$rec[image_url]" widrh="100em" height="100em" id="image">
 <br>
 <br>
 </div>
@@ -56,7 +58,7 @@ ABOUT;
 
 
 
-		<?php
+	<?php
 require_once './function/DbManager.php';
 $db = getDb();
 $sql = "SELECT `name1`,`name2`,`rival_code`,`winner`,`date`,`end_turn`,`damage1`,`damage2`,`kaihisuu1`,`kaihisuu2` FROM `result` WHERE `code`=? ORDER BY `number`";
@@ -247,12 +249,12 @@ foreach ($rival_count as $key => $value) {
 print '</table>';
 ?>
 
-		<br>
-		<div class="col-3 list-group">
-			<a href="chara_zukan<?php print "?code=$code&page=$page";?>"
-				class="list-group-item list-group-item-action list-group-item-secondary">図鑑に戻る</a>
-		</div>
-		<br>
+	<br>
+	<div class="col-3 list-group">
+		<a href="chara_zukan<?php print "?code=$code&page=$page";?>"
+			class="list-group-item list-group-item-action list-group-item-secondary">図鑑に戻る</a>
+	</div>
+	<br>
 
 	</div><!-- container_end -->
 </body>

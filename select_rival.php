@@ -124,7 +124,7 @@ function clickedStop() {
     'use strict';
     clearTimeout(intervalID);
     //音を鳴らす
-    var audio = new Audio("http://ori-chara.angry.jp/se/decision26.mp3");
+    var audio = new Audio("https://angry-ori-chara.ssl-lolipop.jp/se/decision26.mp3");
 	audio.play();
 // 結果を画面に表示
     document.getElementById("isChara").innerHTML = chara;

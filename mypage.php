@@ -21,7 +21,11 @@ head();
 </head>
 
 <body>
-  <audio src="./music/bgm_maoudamashii_acoustic52.mp3" autoplay loop></audio>
+  <audio src="/music/bgm_maoudamashii_acoustic52.mp3" autoplay loop></audio>
+  <?php navvar(); ?>
+  <br>
+  <br>
+  <br>
   <div ID="container">
 
     <div ID="boxA"></div>
@@ -98,16 +102,16 @@ $stmt_event->execute($data);
 print "<h1>最近のできごと</h1>";
 print "<div class=\"event\">";
 foreach ($stmt_event as $row) {
-  echo date('Y年m月d日H時i分',  strtotime($row['date'])).'　　　';
-  if ($code == $row['code']){
-    $row['winner'] == '1' ? $syouhai = "<span class=\"win\">勝利</span>" : $syouhai = "<span class=\"lose\">敗北</span>";
-    print "<a href=\"chara_data.php?code=${row['rival_code']}\">${row['name2']}</a>に勝負を挑み{$syouhai}した";
-  }
-  if ($rec['code'] != $row['code']){
-    $row['winner'] == '2' ? $syouhai = "<span class=\"win\">勝利</span>" : $syouhai = "<span class=\"lose\">敗北</span>";
-    print "<a href=\"chara_data.php?code=${row['code']}\">${row['name1']}</a>に勝負を挑まれ{$syouhai}した";
-  }
-  echo '<br>';
+    echo date('Y年m月d日H時i分', strtotime($row['date'])).'　　　';
+    if ($code == $row['code']) {
+        $row['winner'] == '1' ? $syouhai = "<span class=\"win\">勝利</span>" : $syouhai = "<span class=\"lose\">敗北</span>";
+        print "<a href=\"chara_data.php?code=${row['rival_code']}\">${row['name2']}</a>に勝負を挑み{$syouhai}した";
+    }
+    if ($rec['code'] != $row['code']) {
+        $row['winner'] == '2' ? $syouhai = "<span class=\"win\">勝利</span>" : $syouhai = "<span class=\"lose\">敗北</span>";
+        print "<a href=\"chara_data.php?code=${row['code']}\">${row['name1']}</a>に勝負を挑まれ{$syouhai}した";
+    }
+    echo '<br>';
 }
 print "</div>";
 
@@ -139,7 +143,7 @@ MENU;
   <script>
     function clicked() {
       //音を鳴らす
-      var audio = new Audio("http://ori-chara.angry.jp/se/decision22.mp3");
+      var audio = new Audio("https://angry-ori-chara.ssl-lolipop.jp/se/decision22.mp3");
       audio.play();
     }
   </script>

@@ -156,7 +156,7 @@ while ($hp1 > 0 && $hp2 > 0){
 			$A = 0;
 			$text = "{$name1}の{$waza_hyoujiA}！しかし攻撃は外れてしまった！";
 			array_push($kakunou_kaihi2,1);
-			$koukaon = "http://ori-chara.angry.jp/se/cancel2.mp3";
+			$koukaon = "https://angry-ori-chara.ssl-lolipop.jp/se/cancel2.mp3";
 		}
 	}else{
 		//プレーヤーBのターンの場合
@@ -184,7 +184,7 @@ while ($hp1 > 0 && $hp2 > 0){
 			$B = 0;
 			$text = "{$name2}の{$waza_hyoujiB}！しかし攻撃は外れてしまった！";
 			array_push($kakunou_kaihi1,1);
-			$koukaon = "http://ori-chara.angry.jp/se/cancel2.mp3";
+			$koukaon = "https://angry-ori-chara.ssl-lolipop.jp/se/cancel2.mp3";
 		}
 	}
 
@@ -216,44 +216,44 @@ if ($hp2 <= 0) {
 
 	$winner = 1;
 	$text = "{$name2}は力尽きてしまった！";
-	$koukaon = "http://ori-chara.angry.jp/se/decision22.mp3";
+	$koukaon = "https://angry-ori-chara.ssl-lolipop.jp/se/decision22.mp3";
 	array_push($kakunou_text,$text);
 	array_push($kakunou_koukaon,$koukaon);
 
 	$text = "{$name1}は戦闘に勝利した！";
-	$koukaon = "http://ori-chara.angry.jp/se/trumpet1.mp3";
+	$koukaon = "https://angry-ori-chara.ssl-lolipop.jp/se/trumpet1.mp3";
 	array_push($kakunou_text,$text);
 	array_push($kakunou_koukaon,$koukaon);
 
 	$text = "強化ポイントを{$get_experience}ポイント手に入れた！";
-	$koukaon = "http://ori-chara.angry.jp/se/trumpet1.mp3";
+	$koukaon = "https://angry-ori-chara.ssl-lolipop.jp/se/trumpet1.mp3";
 	array_push($kakunou_text,$text);
 	array_push($kakunou_koukaon,$koukaon);
 
 	//レベルアップしたらテキストを表示
 	if ($new_level1 != $level1) {
 		$text = "{$name1}はレベルが{$new_level1}にあがった！";
-		$koukaon = "http://ori-chara.angry.jp/se/trumpet1.mp3";
+		$koukaon = "https://angry-ori-chara.ssl-lolipop.jp/se/trumpet1.mp3";
 		array_push($kakunou_text,$text);
 		array_push($kakunou_koukaon,$koukaon);
 		//レベルが3になったら必殺技を覚える
 		if ($new_level1 == 3) {
 			$text = "{$name1}は必殺技を使用可能になった！<br>※キャラクター強化画面で必殺技の設定をしてください。";
-			$koukaon = "http://ori-chara.angry.jp/se/decision22.mp3";
+			$koukaon = "https://angry-ori-chara.ssl-lolipop.jp/se/decision22.mp3";
 			array_push($kakunou_text,$text);
 			array_push($kakunou_koukaon,$koukaon);
 		}
 		//レベルが20になったら超必殺技を覚える
 		if ($new_level1 == 20) {
 			$text = "{$name1}は超必殺技を使用可能になった！<br>※キャラクター強化画面で必殺技の設定をしてください。";
-			$koukaon = "http://ori-chara.angry.jp/se/decision22.mp3";
+			$koukaon = "https://angry-ori-chara.ssl-lolipop.jp/se/decision22.mp3";
 			array_push($kakunou_text,$text);
 			array_push($kakunou_koukaon,$koukaon);
 		}
 		//レベルが5になったら特殊能力を覚える
 		if ($new_level1 == 5) {
 			$text = "{$name1}は特殊能力を使用可能になった！<br>※キャラクター強化画面で特殊能力の設定をしてください。";
-			$koukaon = "http://ori-chara.angry.jp/se/decision22.mp3";
+			$koukaon = "https://angry-ori-chara.ssl-lolipop.jp/se/decision22.mp3";
 			array_push($kakunou_text,$text);
 			array_push($kakunou_koukaon,$koukaon);
 		}
@@ -262,11 +262,11 @@ if ($hp2 <= 0) {
 if ($hp1 <= 0) {
 	$winner = 2;
 	$text = "{$name1}は力尽きてしまった！";
-	$koukaon = "http://ori-chara.angry.jp/se/decision22.mp3";
+	$koukaon = "https://angry-ori-chara.ssl-lolipop.jp/se/decision22.mp3";
 	array_push($kakunou_text,$text);
 	array_push($kakunou_koukaon,$koukaon);
 	$text = "{$name1}は戦闘に敗北した．．．";
-	$koukaon = "http://ori-chara.angry.jp/se/decision22.mp3";
+	$koukaon = "https://angry-ori-chara.ssl-lolipop.jp/se/decision22.mp3";
 	array_push($kakunou_text,$text);
 	array_push($kakunou_koukaon,$koukaon);
 

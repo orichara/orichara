@@ -4,8 +4,8 @@ require_once './function/DbManager.php';
 //ヘッダーを呼び出し
 head();
 ?>
-<link rel="stylesheet" type="text/css" href="chara_css/chara_zukan.css">
-<link rel="shortcut icon" href="http://ori-chara.angry.jp/sozai/fav/tmfav04905.ico" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" type="text/css" href="https://angry-ori-chara.ssl-lolipop.jp/chara_css/chara_zukan.css">
+<link rel="shortcut icon" href="https://angry-ori-chara.ssl-lolipop.jp/sozai/fav/tmfav04905.ico" type="image/vnd.microsoft.icon">
 <title>オリキャラ検索</title>
 </head>
 

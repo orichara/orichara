@@ -5,8 +5,8 @@ require_once './function/DbManager.php';
 //ヘッダーを呼び出し
 head();
 ?>
-<link rel="stylesheet" type="text/css" href="chara_css/ranking.css">
-<link rel="shortcut icon" href="http://ori-chara.angry.jp/sozai/fav/tmfav04905.ico" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" type="text/css" href="https://angry-ori-chara.ssl-lolipop.jp/chara_css/ranking.css">
+<link rel="shortcut icon" href="https://angry-ori-chara.ssl-lolipop.jp/sozai/fav/tmfav04905.ico" type="image/vnd.microsoft.icon">
 <?php
 if (isset($_GET['rank']) == false) {
     $_GET['rank'] = 1;

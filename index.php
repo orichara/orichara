@@ -10,7 +10,8 @@ head();
 	content="あなたの考えたオリジナルキャラクター（オリキャラ）を戦わせてみませんか？メールアドレス登録は不要ですぐにキャラクターを登録できます。自分だけのオリキャラでランキングトップを目指せ！">
 <meta name="keywords" content="オリキャラ,オリジナル,キャラクター,バトル,創作">
 <link rel="stylesheet" type="text/css" href="index.css">
-<link rel="shortcut icon" href="http://ori-chara.angry.jp/sozai/fav/tmfav04905.ico" type="image/vnd.microsoft.icon">
+<link rel="shortcut icon" href="https://angry-ori-chara.ssl-lolipop.jp/sozai/fav/tmfav04905.ico"
+	type="image/vnd.microsoft.icon">
 <title>オリキャラバトル　～あなたの考えたキャラクターを戦わせよう！～</title>
 </head>
 
@@ -59,14 +60,14 @@ for ($i = 0; $i <= 4; $i++) {
     for ($tes = 0; $tes <= 3; $tes++) {
         $hyouji = ($i * 4) + $tes;
         print <<< ETSURAN
-				<a href="chara_data.php?code=$link[$hyouji]" style="text-decoration:none;color: black;">		
+				<a href="https://angry-ori-chara.ssl-lolipop.jp/chara_data.php?code=$link[$hyouji]" style="text-decoration:none;color: black;">		
 				<div class="col-3 col-lg-4">
-				<img class="rounded" src="./chara_image/$image[$hyouji]" alt="キャラクターの画像" title="$name[$hyouji]" height="235rem" width="235rem">
+				<img class="rounded" src="https://angry-ori-chara.ssl-lolipop.jp/chara_image/$image[$hyouji]" alt="キャラクターの画像" title="$name[$hyouji]" height="235rem" width="235rem">
 				</div></a>	
 			
 ETSURAN;
-	}
-	
+    }
+    
     print "</div></div>";
 }
 

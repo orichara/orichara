@@ -15,7 +15,6 @@ if (isset($_COOKIE[session_name()])==true) {
 </head>
 <body>
 <div ID="container">
-<div ID="boxA"></div>
 <div id="wrapper">
 <div id="boxB">
 
@@ -24,15 +23,18 @@ if (isset($_COOKIE[session_name()])==true) {
 <br>
 <br>
 <a href="http://ori-chara.angry.jp/index.php">オリキャラバトル　TOP</a>
+<?php
+header( "Location: https://angry-ori-chara.ssl-lolipop.jp/chara_serch.php" ) ;
+exit ;
+?>
 
 </div>
-<div id="boxC">
-</div>
 </div>
 
-<div id="boxD"></div>
-<div id="boxE"></div>
 
 </div>
+<script>
+window.location.href = 'https://angry-ori-chara.ssl-lolipop.jp/index.php';
+</script>
 </body>
 </html>
