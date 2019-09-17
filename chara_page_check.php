@@ -35,18 +35,11 @@ print <<< BACK
 <body>
 
 <div ID="container">
-<div ID="boxA"></div>
-
 
 <div id="boxB">
 キャラクター名かパスワードが間違っています。<br>
 <a href="chara_page.php">戻る</a>
 </div>
-
-
-
-<div id="boxD"></div>
-<div id="boxE"></div>
 
 </div>
 </body>

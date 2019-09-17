@@ -22,7 +22,7 @@ if (isset($_COOKIE[session_name()])==true) {
 ログアウトしました。
 <br>
 <br>
-<a href="http://ori-chara.angry.jp/index.php">オリキャラバトル　TOP</a>
+<a href="https://angry-ori-chara.ssl-lolipop.jp/chara_serch.php">オリキャラバトル　TOP</a>
 <?php
 header( "Location: https://angry-ori-chara.ssl-lolipop.jp/chara_serch.php" ) ;
 exit ;
@@ -33,8 +33,5 @@ exit ;
 
 
 </div>
-<script>
-window.location.href = 'https://angry-ori-chara.ssl-lolipop.jp/index.php';
-</script>
 </body>
 </html>

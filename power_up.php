@@ -176,7 +176,6 @@ if (isset($_POST['tokusyu1'])){
 	$stmt->execute($data1);
 }
 
-
 $sql = 'SELECT * FROM `character` WHERE `name`=? AND `password`=?';
 $stmt = $db->prepare($sql);
 $data[] = $name;
@@ -252,7 +251,6 @@ $speed
 LINE2;
 
 //3列目
-//
 print <<< LINE3
 <tr>
 <td bgcolor="#CCFFFF">
@@ -354,19 +352,13 @@ print <<<TOKUSYU1
 <input class="" type="submit" value="特殊能力を登録！">
 </form>
 TOKUSYU1;
-
 }
 ?>
 <br>
 <a href="mypage.php">マイページに戻る</a>
-<br />
-
-
-</div>
-<div id="boxC">
+<br>
 </div>
 </div>
-
 </div>
 <script>
 function clicked() {

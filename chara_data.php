@@ -21,18 +21,18 @@ $rec = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <link rel="stylesheet" type="text/css" href="chara_css/chara_data.css">
-<link rel="shortcut icon" href="https://angry-ori-chara.ssl-lolipop.jp/sozai/fav/tmfav04905.ico" type="image/vnd.microsoft.icon">
+<link rel="shortcut icon" href="https://angry-ori-chara.ssl-lolipop.jp/sozai/fav/tmfav04905.ico"
+    type="image/vnd.microsoft.icon">
 <title><?php print "$rec[name]";?> キャラクター図鑑 </title>
 </head>
 
 <body>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-	</script>
-
-	<br>
-	<br>
-	<?php
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <br>
+    <br>
+    <?php
 containar();
 navvar();
 
@@ -42,25 +42,22 @@ print <<<STATUS
 <br>
 <br>
 <div class="row">
-<div class="col-6">
+<div class="col-12 col-sm-12 col-md-5 col-xl-5">
 <img class="img-thumbnail" src="https://angry-ori-chara.ssl-lolipop.jp/chara_image/$rec[image_url]" widrh="100em" height="100em" id="image">
 <br>
 <br>
 </div>
 <br>
-<div class="col-5 rounded bg-light" id="boxC">
+<div class="col-12 col-sm-12 col-md-5 col-xl-5 rounded bg-light" id="boxC">
 STATUS;
 
 require_once './function/status.php';
 
-
 print "</div>";
 
 ?>
-
-
-	<div class="col-12" id="boxD">
-		<?php
+    <div class="col-12" id="boxD">
+        <?php
 $about = htmlspecialchars($rec['about']);
 //文字数の長さを取得して枠の中に納まるようにする
 $mojisuu = mb_strlen($about, UTF8);
@@ -91,12 +88,10 @@ print <<<ABOUT
 <div>タグ一覧<br></div>
 ABOUT;
 
-//
 //タグ一覧
 for ($i = 1; $i <= 10; $i++) {
     print "<a href=https://angry-ori-chara.ssl-lolipop.jp/chara_serch.php?word={$rec["tag$i"]}&type=3page=$show_page>{$rec["tag$i"]}  </a>";
 }
-
 
 //称号一覧
 print '<div ID="shogo">獲得称号一覧<br>';
@@ -146,9 +141,9 @@ if ($barannsu != null) {
 
 print '</div>';
 ?>
-		<p>最近の対戦成績</p>
-		相手に勝負を仕掛けた試合
-		<?php
+        <p>最近の対戦成績</p>
+        相手に勝負を仕掛けた試合
+        <?php
 require_once './function/DbManager.php';
 $db = getDb();
 $sql = "SELECT `name1`,`rival_code`,`name2`,`winner`,`date`,`end_turn` FROM `result` WHERE `code`=? ORDER BY `number` DESC LIMIT 5";
@@ -165,7 +160,6 @@ print <<<SEISEKI
 <th width="20%">終了ターン</th>
 </tr>
 SEISEKI;
-
 
 while (true) {
     $rec = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -254,25 +248,18 @@ print '</table>';
 $db = null;
 
 ?>
-		<br>
-
-		<a href="detail<?php print "?code=$code";?>"
-			class="col-12 list-group-item list-group-item-action list-group-item-secondary">詳細データ</a>
-
-		<br>
-		<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-			data-text="<?php print "キャラクター名：".$name." レベル：".$level." 攻撃力：".$attack." 防御力：".$defence." 必殺技：".$hissatsu1." 説明：".$about;?>"
-			data-show-count="false">Tweet</a>
-		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-	</div>
-	</div>
-	<div>
-		<br>
-
-
-	</div>
-	</div>
-	<br>
+        <br>
+        <a href="detail<?php print "?code=$code";?>"
+            class="col-12 list-group-item list-group-item-action list-group-item-secondary">詳細データ</a>
+        <br>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+            data-text="<?php print "キャラクター名：".$name." レベル：".$level." 攻撃力：".$attack." 防御力：".$defence." 必殺技：".$hissatsu1." 説明：".$about;?>"
+            data-show-count="false">Tweet</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    </div>
+    </div>
+    <br>
 </body>
 
 </html>
