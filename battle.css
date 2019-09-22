@@ -35,20 +35,19 @@ animation: bgiLoop 5s linear infinite;
 }
 
 #senntou{
-width:1100px;
-height:650px;
-margin:10px 10px 10px 10px;
-padding: 10px 20px 20px 10px;
-color: #000000;
-background-color: #CCCCCC;
-background-image: url("../sozai/kabe/textured_paper.png") !important;
-
--moz-border-radius: 14px;
--webkit-border-radius: 14px;
-border-radius: 14px;
--moz-box-shadow: 0px 0px 20px #000000;
--webkit-box-shadow: 0px 0px 20px #000000;
-box-shadow: 0px 0px 20px #000000;
+	width:1100px;
+	height:650px;
+	margin:10px 10px 10px 10px;
+	padding: 10px 20px 20px 10px;
+	color: #000000;
+	background-color: #CCCCCC;
+	background-image: url("../sozai/kabe/textured_paper.png") !important;
+	-moz-border-radius: 14px;
+	-webkit-border-radius: 14px;
+	border-radius: 14px;
+	-moz-box-shadow: 0px 0px 20px #000000;
+	-webkit-box-shadow: 0px 0px 20px #000000;
+	box-shadow: 0px 0px 20px #000000;
 }
 
 #name{
@@ -60,7 +59,6 @@ box-shadow: 0px 0px 20px #000000;
 	background-image: url("../sozai/kabe/handmadepaper.png") !important;
 	margin:20px 5px 20px 5px;
 	height:210px;
-
     border:double 5px #000000;
     -moz-border-radius: 9px;
     -webkit-border-radius: 9px;
@@ -80,13 +78,11 @@ box-shadow: 0px 0px 20px #000000;
 	position: relative;
 	bottom: 80px;
 	right: 20px;
-/* 	display: block;*/
 	width: 110px;
 	padding: 10px 20px 10px 20px;
 	text-align: center;
 	font-weight: bold;
 	text-decoration: none;
-/* 	color: #FFF; */
 	text-shadow: 0 0 5px rgba(255, 255, 255, 0.0);
 	background: red;
 	transition: .4s;
@@ -94,7 +90,6 @@ box-shadow: 0px 0px 20px #000000;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border: 2px solid #949494;
-
 	animation: blink 1s linear infinite normal;
 	-webkit-animation: blink 1s linear infinite normal;
 	-moz-animation: blink 1s linear infinite normal;
@@ -121,8 +116,8 @@ box-shadow: 0px 0px 20px #000000;
 	100% {background-color:#CCFFFF;}
 }
 .btn:hover {
-text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83), 6px 0px 15px rgba(255, 255, 240, 0.83);
-transition: .4s;
+	text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83), 6px 0px 15px rgba(255, 255, 240, 0.83);
+	transition: .4s;
 }
 
 .btn .active {
@@ -130,7 +125,9 @@ transition: .4s;
     color: white;
 }
 
-.btn :hover:not(.active) {background-color: #ddd;}
+.btn :hover:not(.active) {
+	background-color: #ddd;
+}
 
 :hover.btn {
 	cursor: pointer;

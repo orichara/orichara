@@ -107,7 +107,7 @@ foreach ($stmt_event as $row) {
         $row['winner'] == '1' ? $syouhai = "<span class=\"win\">勝利</span>" : $syouhai = "<span class=\"lose\">敗北</span>";
         print "<a href=\"chara_data.php?code=${row['rival_code']}\">${row['name2']}</a>に勝負を挑み{$syouhai}した";
     }
-    if ($rec['code'] != $row['code']) {
+    if ($code != $row['code']) {
         $row['winner'] == '2' ? $syouhai = "<span class=\"win\">勝利</span>" : $syouhai = "<span class=\"lose\">敗北</span>";
         print "<a href=\"chara_data.php?code=${row['code']}\">${row['name1']}</a>に勝負を挑まれ{$syouhai}した";
     }

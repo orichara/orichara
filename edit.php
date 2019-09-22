@@ -6,8 +6,7 @@ if (isset($_SESSION['login'])==false) {
     print '<a href="chara_page.php">ログイン画面へ</a>';
     exit();
 }
-?>
-<?php
+
 require_once './function/common.php';
 require_once 'kannsuu.php';
 require_once './function/DbManager.php';
@@ -17,8 +16,7 @@ $db = getDb();
 
 $name=$_SESSION['name'];
 $pass=$_SESSION['pass'];
-?>
-<?php
+
 //キャラクターの説明文と製作者URLを更新
 if (isset($_POST['url'])) {
     $set_url = $_POST['url'];
@@ -38,9 +36,7 @@ if (isset($_POST['tag1'])) {
     $tags = array($set_tag1,$set_tag2,$set_tag3,$set_tag4,$set_tag5,$set_tag6,$set_tag7,$set_tag8,$set_tag9,$set_tag10,$name);
     $stmt2->execute($tags);
 }
-
 ?>
-
 
 <link rel="stylesheet" type="text/css" href="https://angry-ori-chara.ssl-lolipop.jp/chara_css/mypage.css">
 <title>編集画面</title>
@@ -87,18 +83,18 @@ EDIT;
 //レベルを10で割ったものに2を足した数がつけられるタグの数
 $number_tags = ceil($rec['level']/10) + 2;
 //タグの数は最大10個までにする
-if ($number_tags >= 10){
+if ($number_tags >= 10) {
     $number_tags = 10;
 }
 $ii = 0;
 //データベースに値を渡すため、登録できるタグの数にかかわらずひとまず10回ループさせる
-for ($i = 1; $i <= 10; $i++){
+for ($i = 1; $i <= 10; $i++) {
     $ii = $i - 1;
     //登録できるタグの数を超えたら非表示にする
-    if ($number_tags >= $i){
+    if ($number_tags >= $i) {
         $from_type ="text";
         $current_tag = "タグ".$i."<br>";
-    }else{
+    } else {
         $from_type ="hidden";
         $current_tag = "";
     }
@@ -111,11 +107,12 @@ TAG;
 }
 
 ?>
-<br>
-<input class="btn2" type="submit" value="タグを登録・変更する">
-</form>
-<a href="mypage.php" style="text-decoration:none;"><button type="button" class="btn2">マイページに戻る</button></a>
-<br>
+                <br>
+                <input class="btn2" type="submit" value="タグを登録・変更する">
+                </form>
+                <a href="mypage.php" style="text-decoration:none;"><button type="button"
+                        class="btn2">マイページに戻る</button></a>
+                <br>
             </div>
         </div>
     </div>
