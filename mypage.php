@@ -6,8 +6,7 @@ if (isset($_SESSION['login'])==false) {
     exit();
 } else {
 }
-?>
-<?php
+
 require_once './function/common.php';
 require_once 'kannsuu.php';
 require_once './function/DbManager.php';
@@ -46,28 +45,16 @@ $stmt->execute($data);
 
 $rec = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
-
-
-      <?php
-print '<img border="1" src="https://angry-ori-chara.ssl-lolipop.jp/chara_image/'.$rec['image_url'].'" width="400" height="400">';
-
-?>
+<img border="1" src="https://angry-ori-chara.ssl-lolipop.jp/chara_image/<?=$rec['image_url']?>" width="400" height="400">
       <br>
       <br>
-
     </div>
-
     <div id="boxC">
-      <?php
-require_once './function/status.php';
-?>
+      <?php require_once './function/status.php';?>
     </div>
-
     <div class="kaijyo"></div>
-
     <div ID="about">
       <?php
-
 print <<< STATUS2
 作成日：${rec['sakuseibi']}
 <br>
@@ -118,7 +105,7 @@ print "</div>";
 $_SESSION['code'] = $rec['code'];
 $_SESSION['level'] = $rec['level'];
 
-print <<< MENU
+?>
 <br>
 <form method="post" action="edit.php">
 <input class="btn2" type="submit" onClick="clicked()" value="キャラクターを編集">
@@ -134,11 +121,7 @@ print <<< MENU
 </form>
 <br>
 <br>
-MENU;
-?>
-
     </div>
-
   </div>
   <script>
     function clicked() {

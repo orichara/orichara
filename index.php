@@ -19,33 +19,13 @@ head();
 	<?php
 
 $db = getDb();
-$sql = 'SELECT `code`,`name`,`about`,`image_url` FROM `character` WHERE 1 ORDER BY `code` DESC LIMIT 20';
+$sql = 'SELECT `code`,`name`,`about`,`image_url` FROM `character` WHERE 1 ORDER BY `code` DESC LIMIT 10';
 $stmt = $db->prepare($sql);
 $stmt->execute();
 
 containar();
 //ナビゲーションバーを呼び出し
 navvar();
-
-function card($hyouji,$card_color,$image,$name,$about,$link){
-	htmlspecialchars($image,$name,$about,$link);
-	print <<< KA
-	<div class="card $card_color mb-3 mx-auto" style="max-width: 800px;">
-	  <div class="row no-gutters">
-		<div class="col-md-4">
-		<img class="rounded col-xl-12" src="https://angry-ori-chara.ssl-lolipop.jp/chara_image/$image" alt="キャラクターの画像" title="$name">
-		</div>
-		<div class="col-md-8">
-		  <div class="card-body">
-			<h5 class="card-title">$name</h5>
-			<p class="card-text">$about</p>
-			<a href="https://angry-ori-chara.ssl-lolipop.jp/chara_data.php?code=$link" class="card-link">詳細を見る</a>
-		  </div>
-		</div>
-	  </div>
-	</div>
-KA;
-}
 
 print <<< HEAD_CAROUSEL
 <br>
@@ -58,13 +38,13 @@ for ($i = 1; $i <= 3; $i++) {
     $rec = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($rec==false) {
         break;
-	}
-	$card_color = 'bg-light';
-	card ($hyouji,$card_color,$rec['image_url'],$rec['name'],$rec['about'],$rec['code']);
-$hyouji++;
+    }
+    $card_color = 'bg-light';
+    card($hyouji, $card_color, $rec['image_url'], $rec['name'], $rec['about'], $rec['code']);
+    $hyouji++;
 }
 
-print '<h2 class="col-12 text-info font-size: small;">ランダムPICKUP</h2>';	
+print '<h2 class="col-12 text-info font-size: small;">ランダムPICKUP</h2>';
 $hyouji2 = 0;
 $sql_randomselect = 'SELECT `code`,`name`,`about`,`image_url` FROM `character` WHERE 1 ORDER BY RAND() DESC LIMIT 10';
 $stmt2 = $db->prepare($sql_randomselect);
@@ -73,15 +53,17 @@ for ($i = 1; $i <= 3; $i++) {
     $rec = $stmt2->fetch(PDO::FETCH_ASSOC);
     if ($rec==false) {
         break;
-	}
-	$card_color = 'bg-info';
-	card ($hyouji,$card_color,$rec['image_url'],$rec['name'],$rec['about'],$rec['code']);
-	$hyouji2++;
+    }
+    $card_color = 'bg-info';
+    card($hyouji, $card_color, $rec['image_url'], $rec['name'], $rec['about'], $rec['code']);
+    $hyouji2++;
 }
 
 ?>
 	<div class="box1">
 		<h2>Update</h2>
+		2019.9.29　コメント機能を追加しました。
+		<br>
 		2019.9.15　マイページに最近の出来事を追加しました。
 		<br>
 		2019.9.9　編集ページにタグ機能を追加しました。
